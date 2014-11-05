@@ -1,7 +1,7 @@
 {
   "name": "generator-nodestack",
   "version": "0.0.0",
-  "description": "Yeoman generator",
+  "description": "Yeoman generator for MEBN stack(Mongo+Express+Backbone+Node). Also Passport included.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "gsrivast31/generator-nodestack",
