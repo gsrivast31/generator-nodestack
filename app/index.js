@@ -256,11 +256,14 @@ var NodestackGenerator = yeoman.generators.Base.extend({
       this.mkdir('app/src');     
 
       this.template('_app.js', 'app.js');
-      this.template('app/config/_auth.js', 'app/config/auth.js');
       this.template('app/config/_database.js', 'app/config/database.js');
-      this.template('app/config/_passport.js', 'app/config/passport.js');
-      this.template('app/models/_user.js', 'app/models/user.js');
       this.template('app/routes/_routes.js', 'app/routes/routes.js');
+
+      if (this.includePassport) {
+        this.template('app/config/_auth.js', 'app/config/auth.js');
+        this.template('app/config/_passport.js', 'app/config/passport.js');
+        this.template('app/models/_user.js', 'app/models/user.js');
+      };
     },
 
     frontendprojectfiles: function() {
@@ -292,7 +295,10 @@ var NodestackGenerator = yeoman.generators.Base.extend({
       this.copy('app/templates/404.handlebars', 'views/layouts/404.handlebars');
       this.template('app/templates/_main.handlebars', 'views/layouts/main.handlebars');
       this.template('app/templates/_home.handlebars', 'views/home.handlebars');
-      this.template('app/templates/_profile.handlebars', 'views/profile.handlebars');
+
+      if (this.includePassport) {
+        this.template('app/templates/_profile.handlebars', 'views/profile.handlebars');
+      }
 
       this.copy('app/_helpers.js', 'views/helpers/helpers.js');
 

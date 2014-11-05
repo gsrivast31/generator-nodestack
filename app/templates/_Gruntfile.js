@@ -194,7 +194,7 @@ module.exports = function (grunt) {
         '<%%= yeoman.temp %>/scripts/vendor.js', 
         '<%%= yeoman.temp %>/scripts/app.js',<%
         } else { %>
-        '<%%= yeoman.client %>/scripts/**/*.js' <%
+        '<%%= yeoman.client %>/scripts/**/*.js', <%
         } %>   
         '<%%= yeoman.temp %>/scripts/templates.js'
       ]

@@ -7,7 +7,7 @@
  */
 
 'use strict';
-<% if (includePassportSocial) { %>
+<% if (includePassport) { %>
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
@@ -19,15 +19,20 @@ function isLoggedIn(req, res, next) {
   // if they aren't redirect them to the home page
   res.redirect('/');
 }
-<% } %>
-module.exports = function(app, passport) {
-
+<% } %><% if (includePassport) { %>
+module.exports = function(app, passport) {<% 
+} else { %>
+module.exports = function(app) {<% 
+}%>
   // =====================================
   // HOME PAGE ===========================
   // =====================================
-  app.get('/', function(req, res) {
-    //Load index file
-    res.render('home', { message : req.flash('errorMessage')}); 
+  app.get('/', function(req, res) {<% 
+    if (includePassport) { %>    
+    res.render('home', { message : req.flash('errorMessage')}); <% 
+    } else { %>
+    res.render('home');<%
+    }%>
   });
 
   app.get('/404', function (req, res) {
@@ -36,11 +41,11 @@ module.exports = function(app, passport) {
         layout: '404'
     });
   });
-
+<% if (includePassport) { %>
   app.get('/profile', isLoggedIn, function (req, res) {
     res.render('profile');
   });
-
+<% } %>
 <% if (includePassport) { %>
   // =====================================
   // LOGOUT ==============================

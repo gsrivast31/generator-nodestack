@@ -20,9 +20,9 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var configDB = require('./app/config/database.js');<% 
 if (includePassport) { %>
-var passport = require('passport');
-var routes = require('./app/routes/routes.js');<% 
+var passport = require('passport');<% 
 } %>
+var routes = require('./app/routes/routes.js');
 
 var app = express();
 
@@ -61,7 +61,9 @@ app.use(express.static(__dirname + '/public'));
 <% if (includePassport) { %>
 // routes ======================================================================
 routes(app, passport); // load our routes and pass in our app and fully configured passport
-<% } %>
+<% } else { %>
+routes(app);<%
+} %>
 // launch ======================================================================
 module.exports = app;
 //app.listen(app.get('port'));
