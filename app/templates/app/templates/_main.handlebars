@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	
+	<title><%= slugname %></title>
+
+	<% if (includeBootStrap) { %>
+	<!-- Bootstrap itself -->
+	<link rel="stylesheet" href="public/requires/bootstrap/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="public/requires/bootstrap-social/bootstrap-social.css" type="text/css">
+  <% } %>
+  <!-- Custom styles -->
+  <% if (includeFontAwesome) { %>
+	<!-- Fonts -->
+  <link rel="stylesheet" href="public/requires/components-font-awesome/font-awesome.css" type="text/css">
+  <% } %>
+</head>
+
+<!-- use "theme-invert" class on bright backgrounds, also try "text-shadows" class -->
+<body>
+
+    {{{body}}}
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!-- Main (Home) section -->
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">   
+                <h1 class="title"><%= slugname %></h1>
+                <br><br>
+                <div><% if (passports.includeGoogle) { %>
+                    <a class="btn btn-social btn-google" href="/auth/google"><i class="fa fa-google"></i>Sign in with Google</a>
+                    <% } %><% if (passports.includeFacebook) { %> 
+                    <a class="btn btn-social btn-facebook" href="/auth/facebook"><i class="fa fa-facebook"></i>Sign in with Facebook</a><% } %><% if (passports.includeTwitter) { %>  
+                    <a class="btn btn-social btn-twitter" href="/auth/twitter"><i class="fa fa-twitter"></i>Sign in with Twitter</a> <% } %><% if (passports.includeLinkedIn) { %> 
+                    <a class="btn btn-social btn-linkedin" href="/auth/linkedin"><i class="fa fa-linkedin"></i>Sign in with LinkedIn</a> <% } %><% if (passports.includeGithub) { %> 
+                    <a class="btn btn-social btn-github" href="/auth/github"><i class="fa fa-github"></i>Sign in with Github</a><% } %>
+                    {{#if message.length}}
+                        <div class="alert alert-danger">{{message}}</div>
+                    {{/if}}
+                        
+                    <% if (passports.includeLocal) { %> 
+                    <form class="col-md-6 col-md-offset-3" method="post" action="/login">
+                        <hr />
+                        <div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-lg" placeholder="Email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control input-lg" placeholder="Password" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <input id="signin" type="submit" value="Sign In" class="form-control submit"</input>
+                        </div>
+                    </form>
+
+                    <form class="col-md-6 col-md-offset-3" method="post" action="/signup">
+                        <hr />
+                        <div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-lg" placeholder="Email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control input-lg" placeholder="Password" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <input id="signup"  type="submit" value="Sign Up" class="form-control submit"</input>
+                        </div>
+                    </form>
+                    <% } %>
+                </div>
+            </div> <!-- /col -->
+        </div> <!-- /row -->
+    </div>
+</div>
+
+<!-- Load js libs only when the page is loaded. -->
+<script src="public/requires/jquery/jquery.js"></script>
+<script src="public/requires/bootstrap/bootstrap.js"></script>
+<script src="public/requires/modernizr/modernizr.js"></script>
+<script src="scripts/main.js"></script>

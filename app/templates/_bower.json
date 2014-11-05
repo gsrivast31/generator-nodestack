@@ -1,0 +1,16 @@
+{
+  "name": "<%= slugname %>",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~2.0.0",
+    "backbone": "~1.1.1",
+    "underscore": "~1.6.0",<% 
+    if (includeBootStrap) { %>
+    "bootstrap": "~3.3.0",
+    "bootstrap-social": "*",<% 
+    } %> <% if (includeFontAwesome) { %>
+    "components-font-awesome": "~4.2.0",<% 
+    } %>
+    "modernizr": "~2.7.1"
+  }
+}
